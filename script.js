@@ -4,25 +4,25 @@ const historyElements = document.querySelectorAll(".side-history");
 
 let jsonData = [];
 
-const updateCards = function (timeframe) {
+const updateCards = function (timeFrame) {
+  const periodText = {
+    daily: "Yesterday",
+    weekly: "Last Week",
+    monthly: "Last Month",
+  };
+
   jsonData.forEach((item, index) => {
-    const currentHours = item.timeframes[timeframe].current;
-    const previousHours = item.timeframes[timeframe].previous;
+    const currentHours = item.timeframes[timeFrame].current;
+    const previousHours = item.timeframes[timeFrame].previous;
 
-    const periodText = {
-      daily: "Yesterday",
-      weekly: "Last Week",
-      monthly: "Last Month",
-    };
-
-    hoursElements[index].textContent = `${currentHours}hrs`;
-    historyElements[
-      index
-    ].textContent = `${periodText[timeframe]} - ${previousHours}hrs`;
+    hoursElements[index].textContent =
+      `${currentHours}${currentHours === 1 ? "hr" : "hrs"}`;
+    historyElements[index].textContent =
+      `${periodText[timeFrame]} - ${previousHours}${previousHours === 1 ? "hr" : "hrs"}`;
   });
 };
 
-const initApp = async function () {
+const initApp = async () => {
   try {
     const response = await fetch("./data.json");
 
@@ -38,7 +38,6 @@ const initApp = async function () {
     console.error("Error:", error);
   }
 };
-
 initApp();
 
 buttons.forEach((button) => {
@@ -49,11 +48,10 @@ buttons.forEach((button) => {
     });
 
     const clickedButton = e.currentTarget;
-
     clickedButton.classList.add("active");
     clickedButton.setAttribute("aria-pressed", "true");
 
-    const timeframe = clickedButton.dataset.type;
-    updateCards(timeframe);
+    const timeFrame = clickedButton.dataset.type;
+    updateCards(timeFrame);
   });
 });
