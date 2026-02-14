@@ -8,8 +8,8 @@ The goal was to create a dashboard that visualizes time tracking data, allowing 
 
 ## 🔗 Links
 
-- **Live Site:** [View Live Demo](https://altindaselif.github.io/time-tracking-dashboard-main/)
-- **Code:** [View GitHub Repository](https://github.com/altindaselif/time-tracking-dashboard-main)
+- **Live Site:** [View Live Demo](https://altindaselif.github.io/11-time-tracking-dashboard-main/)
+- **Code:** [View GitHub Repository](https://github.com/altindaselif/11-time-tracking-dashboard-main)
 
 ## 💡 Key Features
 
