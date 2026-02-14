@@ -164,6 +164,12 @@ body {
   margin-bottom: var(--spacing-300);
 }
 
+.side-name {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+}
+
 .side-hours {
   font: var(--tp-1);
   margin-bottom: var(--spacing-100);

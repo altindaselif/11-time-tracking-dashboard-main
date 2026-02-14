@@ -5,6 +5,8 @@ const historyElements = document.querySelectorAll(".side-history");
 let jsonData = [];
 
 const updateCards = function (timeFrame) {
+  if (!jsonData || jsonData.length === 0) return;
+
   const periodText = {
     daily: "Yesterday",
     weekly: "Last Week",
@@ -42,6 +44,8 @@ initApp();
 
 buttons.forEach((button) => {
   button.addEventListener("click", (e) => {
+    if (jsonData.length === 0) return;
+
     buttons.forEach((btn) => {
       btn.classList.remove("active");
       btn.setAttribute("aria-pressed", "false");
